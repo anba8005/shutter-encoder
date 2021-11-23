@@ -472,6 +472,7 @@ public class Settings {
 		
 		btnEmptyListAtEnd.setFont(new Font(Shutter.freeSansFont, Font.PLAIN, 12));
 		btnEmptyListAtEnd.setBounds(12, btnDisableMinimizedWindow.getLocation().y + btnDisableMinimizedWindow.getHeight() + 10, btnEmptyListAtEnd.getPreferredSize().width, 16);
+		btnEmptyListAtEnd.setSelected(true);
 		frame.getContentPane().add(btnEmptyListAtEnd);
 		
 		btnEndingAction.setFont(new Font(Shutter.freeSansFont, Font.PLAIN, 12));

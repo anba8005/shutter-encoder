@@ -167,7 +167,7 @@ public class Shutter {
 	/*
 	 * Initialisation
 	 */
-	public static String actualVersion = "15.6";
+	public static String actualVersion = "15.6.1-anba8005";
 	public static String getLanguage = "";
 	public static String pathToFont = "JRE/lib/fonts/Montserrat.ttf";
 	public static String magnetoFont = "Magneto";
@@ -890,8 +890,8 @@ public class Shutter {
 		Utils.changeFrameVisibility(frame, false);
 		topPanel.requestFocus();
 		
-		if (Settings.btnDisableUpdate.isSelected() == false)
-			Update.newVersion();
+		/* if (Settings.btnDisableUpdate.isSelected() == false)
+			Update.newVersion(); */
 	}
 	
 	private void topPanel() {
@@ -902,7 +902,7 @@ public class Shutter {
 
 		lblV = new JLabel();
 		lblV.setFont(new Font(freeSansFont, Font.PLAIN, 12));
-		lblV.setBounds(289, 31, 64, 16);
+		lblV.setBounds(209, 31, 144, 16);
 		lblV.setText("v" + actualVersion);
 		topPanel.add(lblV);
 
