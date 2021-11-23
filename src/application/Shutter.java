@@ -2897,7 +2897,7 @@ public class Shutter {
 		comboFonctions.setEditable(true);
 		comboFonctions.setMaximumRowCount(Toolkit.getDefaultToolkit().getScreenSize().height / 33);
 		comboFonctions.setBounds(8, 19, 168, 22);
-		comboFonctions.getModel().setSelectedItem("");
+		comboFonctions.getModel().setSelectedItem("Apple ProRes");
 		comboFonctions.setRenderer(new ComboBoxRenderer());
 		grpChooseFunction.add(comboFonctions);
 
@@ -3122,6 +3122,12 @@ public class Shutter {
 		comboFilter.setEditable(true);
 		comboFilter.setMaximumRowCount(20);
 		comboFilter.setBounds(228, 19, 76, 22);
+
+		String types[] = { "Proxy", "LT", "422", "422 HQ" };
+		DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<Object>(types);
+		comboFilter.setModel(model);
+		comboFilter.setSelectedIndex(1);
+
 		grpChooseFunction.add(comboFilter);
 
 		comboFilter.addActionListener(new ActionListener() {
@@ -3191,6 +3197,7 @@ public class Shutter {
 		lblFilter.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFilter.setFont(new Font(montserratFont, Font.PLAIN, 13));
 		lblFilter.setBounds(164, 21, 60, 16);
+		lblFilter.setText("Type:");
 		grpChooseFunction.add(lblFilter);
 
 	}
@@ -3211,7 +3218,7 @@ public class Shutter {
 				
 		caseOpenFolderAtEnd1 = new JRadioButton(language.getProperty("caseOpenFolderAtEnd"));
 		caseOpenFolderAtEnd1.setName("caseOpenFolderAtEnd1");
-		caseOpenFolderAtEnd1.setSelected(true);
+		caseOpenFolderAtEnd1.setSelected(false);
 		caseOpenFolderAtEnd1.setFont(new Font(freeSansFont, Font.PLAIN, 12));
 		caseOpenFolderAtEnd1.setBounds(6, 23, caseOpenFolderAtEnd1.getPreferredSize().width, 23);
 		destination1.add(caseOpenFolderAtEnd1);
