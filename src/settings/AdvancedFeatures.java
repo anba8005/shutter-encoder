@@ -284,18 +284,18 @@ public class AdvancedFeatures extends Shutter {
 		
 		        if (caseForcerProgressif.isSelected())
 				{
-		        	return " -field_order progressive";  
+		        	return " -field_order progressive -flags +bitexact";
 		    	}
 		        else if (FFPROBE.entrelaced.equals("1") || caseForcerEntrelacement.isSelected())
 		        {               	
 		          if ((FFPROBE.entrelaced.equals("1") && FFPROBE.fieldOrder.equals("1")) || caseForcerInversion.isSelected()) //Invert fields
-		        	  return " -field_order bt";                    	
+		        	  return " -field_order bt -flags +bitexact+ildct+ilme -top 1";
 		          else
-		        	  return " -field_order tt"; 
+		        	  return " -field_order tt -flags +bitexact+ildct+ilme -top 1";
 		        }		
-	        
-	        	break;
-	        		        
+
+		        break;
+
 			case "DNxHD":
 				
 				if (FFPROBE.entrelaced.equals("1") && caseForcerProgressif.isSelected() == false || caseForcerEntrelacement.isSelected())
@@ -541,14 +541,14 @@ public class AdvancedFeatures extends Shutter {
 						{
 							if (filterComplex != "") filterComplex += ",";
 							
-							filterComplex += "format=yuv444p,interlace";
+							filterComplex += "format=yuv422p10le,interlace";
 						}
 					}
 					else if (FFPROBE.currentFPS == 50.0f || FFPROBE.currentFPS == 59.94f || FFPROBE.currentFPS == 60.0f)
 					{
 						if (filterComplex != "") filterComplex += ",";
 						
-						filterComplex += "format=yuv444p,interlace";
+						filterComplex += "format=yuv422p10le,interlace";
 					}						
 				}
 				
@@ -617,7 +617,7 @@ public class AdvancedFeatures extends Shutter {
 			
 			case "Apple ProRes":
 				
-				flags += " -metadata:s " + '"' + "encoder=" + comboFonctions.getSelectedItem().toString() + " " + comboFilter.getSelectedItem().toString() + '"' + " -vendor apl0 -movflags write_colr+write_gama -flags bitexact";		
+				flags += " -metadata:s " + '"' + "encoder=" + comboFonctions.getSelectedItem().toString() + " " + comboFilter.getSelectedItem().toString() + '"' + " -vendor apl0 -movflags write_colr+write_gama";
 				break;
 				
 			case "AVC-Intra 100":

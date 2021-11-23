@@ -1562,15 +1562,6 @@ public class Shutter {
 					case "422 HQ":
 						debit = (int) ((float) 7.4 * FFPROBE.currentFPS);
 						break;
-					case "444":
-						debit = (int) ((float) 11 * FFPROBE.currentFPS);
-						break;
-					case "4444":
-						debit = (int) ((float) 11 * FFPROBE.currentFPS);
-						break;
-					case "4444 XQ":
-						debit = (int) ((float) 16.5 * FFPROBE.currentFPS);
-						break;
 					}
 					break;
 				case "DNxHR":
@@ -9970,7 +9961,8 @@ public class Shutter {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-																					FFPLAY.previewFilters("fadeOut", true);
+																	
+				FFPLAY.previewFilters("fadeOut", true);
 			}
 
 			@Override
@@ -10203,6 +10195,7 @@ public class Shutter {
 		caseForcerEntrelacement.setToolTipText(language.getProperty("tooltipEntrelacement"));
 		caseForcerEntrelacement.setFont(new Font(freeSansFont, Font.PLAIN, 12));
 		caseForcerEntrelacement.setSize(153, 23);
+		caseForcerEntrelacement.setSelected(true);
 		
 		caseForcerInversion = new JRadioButton(language.getProperty("caseForcerInversion"));
 		caseForcerInversion.setName("caseForcerInversion");
@@ -13012,7 +13005,7 @@ public class Shutter {
 				caseAccel.setSelected(false);
 				comboAccel.setEnabled(false);
 				caseForcerProgressif.setSelected(false);
-				caseForcerEntrelacement.setSelected(false);
+				caseForcerEntrelacement.setSelected(true);
 				caseForcerInversion.setSelected(false);
 				caseForcerDesentrelacement.setSelected(false);
 				comboForcerDesentrelacement.setEnabled(false);
@@ -16137,11 +16130,11 @@ public class Shutter {
 			} else if (comboFonctions.getSelectedItem().toString().equals("Apple ProRes")) {
 
 				lblFilter.setText("Type" + language.getProperty("colon"));
-				String types[] = { "Proxy", "LT", "422", "422 HQ", "444", "4444", "4444 XQ" };
+				String types[] = { "Proxy", "LT", "422", "422 HQ" };
 				DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<Object>(types);
 				if (model.getElementAt(0).equals(comboFilter.getModel().getElementAt(0)) == false) {
 					comboFilter.setModel(model);
-					comboFilter.setSelectedIndex(2);
+					comboFilter.setSelectedIndex(1);
 				}
 				
 			} else if (comboFonctions.getSelectedItem().toString().equals("GoPro CineForm")) {

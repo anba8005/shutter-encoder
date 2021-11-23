@@ -1035,19 +1035,13 @@ public class VideoEncoders extends Shutter {
 				switch (comboFilter.getSelectedItem().toString())
 				{					
 					case "Proxy" :
-						return " -c:v prores -profile:v 0 -pix_fmt yuv422p10";
+						return " -c:v prores -profile:v proxy -pix_fmt yuv422p10";
 					case "LT" :
-						return " -c:v prores -profile:v 1 -pix_fmt yuv422p10";
+						return " -c:v prores -profile:v lt -pix_fmt yuv422p10";
 					case "422" :
-						return " -c:v prores -profile:v 2 -pix_fmt yuv422p10";
+						return " -c:v prores -profile:v std -pix_fmt yuv422p10";
 					case "422 HQ" :
-						return " -c:v prores -profile:v 3 -pix_fmt yuv422p10";
-					case "444" :
-						return " -c:v prores -profile:v 4 -pix_fmt yuv444p10";
-					case "4444" :
-						return " -c:v prores_ks -pix_fmt yuva444p10le -alpha_bits 16 -profile:v 4444";
-					case "4444 XQ" :
-						return " -c:v prores_ks -pix_fmt yuva444p10le -alpha_bits 16 -profile:v 4444xq";
+						return " -c:v prores -profile:v hq -pix_fmt yuv422p10";
 				}
 				
 				break;
